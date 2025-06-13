@@ -1,0 +1,7 @@
+﻿  HUDAnchors.cpp
+  Generating code
+  Previous IPDB was built with incompatible compiler, fall back to full compilation.
+C:\Users\wrfar\source\repos\GamesProgramming2Assignment\Warpbound\Hornet\HtGraphics.cpp(688): warning C4715: 'HtGraphics::WriteTextAligned': not all control paths return a value
+  All 2929 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Hornet.vcxproj -> C:\Users\wrfar\source\repos\GamesProgramming2Assignment\Warpbound\x64\Release\Hornet.exe
