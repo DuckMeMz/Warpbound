@@ -23,6 +23,30 @@ mkdir build
 cd build
 cmake ..
 ```
+---
+## How to play
+
+### Goal
+Navigate through systems to find the wormhole to a lost civilisation. Infected ships will try to stop you. Taking damage increases your infection level—reach full infection and you'll be dragged back to the infected's home system.
+### Credits & Upgrades
+Earn credits by destroying infected ships. Spend them in the space station to restock Ammo, Missiles, Health, Armor, and Quantum Fuel (needed to jump to the next system). After 5 jumps, you'll reach the wormhole.
+### Difficulty
+Enemy strength and numbers scale with the difficulty shown in the top-left corner. Prices rise too, but you'll earn more credits per kill. *Tip: You can shoot down enemy missiles!*
+### Shop & Resources
+Manage your resources carefully, once a wave starts, the shop closes. There's a 30-second grace period between waves for repairs and restocking (press "U" to skip). If you’re caught without ammo or missiles, it’s game over.
+### Controls
+`W,A,S,D` - Movement <br>
+`LMB` - Main Gun <br>
+`RMB` - Missile Barrage <br>
+`U` - Skip Wave Cooldown (Will be kicked out of shop) <br>
+`M` - Mute Background Music <br>
+
+**Cheat Keys** <br>
+`;` - Kill all enemies <br>
+`'` - Add 1000 credits + 1 Enemy Death <br>
+`[` - Good Ending <br> 
+`]` - Bad Ending <br> 
+
 ## Images
 ### Combat
 ![image](https://github.com/user-attachments/assets/afa28acf-64e5-45f5-8960-ca2b7d16142d)
