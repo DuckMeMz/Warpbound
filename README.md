@@ -1,7 +1,7 @@
 # Warpbound 🚀
 
 Warpbound is a wave-based resource survival game developed using **SDL2** and **Hornet Engine** (In-house) for the *Games Programming 2* module at Northumbria University.
-I achieved a mark of **85/100**, highlighting my strong system architecture and my ability to implement scalable and maintainable code. <br>
+I achieved a mark of **85/100**, highlighting my strong system architecture skills and my ability to implement scalable and maintainable code. <br>
 ## Highlights
 - Written in C++ with a clean, modular architecture. [Class Diagram](https://drive.google.com/file/d/1Wa8vY5ho-f2eOyLEkibAxh_GCkdgCWga/view?usp=sharing)
 - Built using CMake, tested primarily on MSVC (Windows)
