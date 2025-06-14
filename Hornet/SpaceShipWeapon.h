@@ -6,6 +6,7 @@ class SpaceShipWeapon : public GameObject
 {
 public:
     SpaceShipWeapon(const std::string& image, GameObject* owner);
+    virtual ~SpaceShipWeapon();
 
     virtual void Initialise();
     virtual void Update(double frametime) override;

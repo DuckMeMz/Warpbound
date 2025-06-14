@@ -10,6 +10,11 @@ MissileLauncher::MissileLauncher(const std::string& image, GameObject* owner)
 {
 }
 
+MissileLauncher::~MissileLauncher()
+{
+
+}
+
 void MissileLauncher::Update(double frametime)
 {
     SpaceShipWeapon::Update(frametime);

@@ -3,6 +3,8 @@
 #include "HtAudio.h"
 
 class SpaceShip;
+class MainGun;
+class MissileLauncher;
 
 class Enemy :
     public GameObject
@@ -31,6 +33,9 @@ private:
     int m_health = 100;
     SpaceShip* m_player;
 
+    MainGun* m_mainGun = nullptr;
+    MissileLauncher* m_missileLauncher = nullptr;
+
     static const double MOVEMENT_SPEED;
 
     //Collision
@@ -39,7 +44,7 @@ private:
     ObjectType m_allowedCollision[2] = { ObjectType::BULLET, ObjectType::MISSILE };
 
     double m_hitFlashTimer = -1.0;
-    const double HIT_FLASH_TIMER_DEFAULT = 0.75;
+    const double HIT_FLASH_TIMER_DEFAULT = 0.05;
 
     //Damage Numbers
 

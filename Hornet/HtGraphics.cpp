@@ -211,12 +211,18 @@ PictureIndex HtGraphics::LoadSpritesheetFrame(const std::string filename, int sp
 
 void HtGraphics::ClearSpritesheets()
 {
-    for (SDL_Surface* surface : m_pSpritesheets)
+    for (auto& pair : m_pictureMap)
     {
-        SDL_FreeSurface(surface);
+        if (pair.second.pTexture != nullptr)
+        {
+            SDL_DestroyTexture(pair.second.pTexture);
+            pair.second.pTexture = nullptr;
+        }
     }
-    m_pSpritesheets.clear();
-    m_pSpritesheets.shrink_to_fit();
+
+    m_pictureMap.clear();
+
+    m_nextPictureIndex = PictureIndex(0);
 }
 
 
@@ -931,16 +937,6 @@ void HtGraphics::ReleaseAllFonts()
 
 void HtGraphics::ReleaseAllSpritesheets()
 {
-    for (SDL_Surface*& surface : m_pSpritesheets)
-    {
-        if (surface != nullptr)
-        {
-            SDL_FreeSurface(surface);
-            surface = nullptr;
-        }
-    }
-    m_pSpritesheets.clear();
-    m_pSpritesheets.shrink_to_fit();
 }
 
 void HtGraphics::DestroyTexture(PictureIndex picIndex)

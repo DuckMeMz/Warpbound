@@ -5,6 +5,7 @@ class MissileLauncher : public SpaceShipWeapon
 {
 public:
     MissileLauncher(const std::string& image, GameObject* owner);
+    ~MissileLauncher() override;
 
     void Update(double frametime) override;
 

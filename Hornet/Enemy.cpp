@@ -20,12 +20,14 @@ Enemy::Enemy(const Vector2D& position, const int health, SpaceShip* player) : Ga
     mainGun->SetCooldown(BULLET_COOLDOWN);
     mainGun->InitProjectile(0, BULLET_DAMAGE, 2000, 30);
     ObjectManager::instance.AddItem(mainGun);
+    m_mainGun = mainGun;
 
     MissileLauncher* missileLauncher = new MissileLauncher("assets/empty.png", this);
     missileLauncher->SetCooldown(MISSILE_COOLDOWN);
     missileLauncher->SetBarrageParams(1, MISSILE_COOLDOWN); //If only firing 1 2nd parameter doesn't matter
     missileLauncher->InitProjectile(0, MISSILE_DAMAGE, MISSILE_SPEED, 30);
     ObjectManager::instance.AddItem(missileLauncher);
+    m_missileLauncher = missileLauncher;
    
 
     LoadImage("assets/player/ship/ship-25.png");
@@ -101,6 +103,10 @@ void Enemy::Update(double frametime)
     {
         if (!m_isExploding)
         {
+            m_mainGun->Deactivate();
+            m_mainGun = nullptr;
+            m_missileLauncher->Deactivate();
+            m_missileLauncher = nullptr;
             int channel = HtAudio::instance.Play(m_explosionSFX, false);
             HtAudio::instance.SetChannelVolume(channel, 0.15);
         }

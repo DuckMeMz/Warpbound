@@ -35,6 +35,7 @@ void Game::StartOfGame()
 // "frametime" is the time in seconds since the last call (delta time)
 void Game::Update(double frametime)
 {
+
     pGalaxy->Update(frametime);
 
     //-----------------------------------------------------------------------
@@ -76,6 +77,7 @@ void Game::EndOfGame()
     HUD::instance.Shutdown();
     delete pGalaxy;
     pGalaxy = nullptr;
+
 
     //This line automatically deletes all managed objects
     ObjectManager::instance.DeleteAllObjects();

@@ -8,6 +8,10 @@ SpaceShipWeapon::SpaceShipWeapon(const std::string& image, GameObject* owner)
     if (m_owner->GetType() == ObjectType::SPACESHIP) m_ownerIsPlayer = true;
 }
 
+SpaceShipWeapon::~SpaceShipWeapon()
+{
+}
+
 void SpaceShipWeapon::Initialise()
 {
 
@@ -17,6 +21,15 @@ void SpaceShipWeapon::Update(double frametime)
 {
     m_position = m_owner->GetPosition();
     m_angle = m_owner->GetAngle();
+    //Deactivate if owner is nullptr, or deactivated
+    if (!m_owner)
+    {
+        Deactivate();
+    }
+    else if (!m_owner->IsActive())
+    {
+        Deactivate();
+    }
     HandleWeapon(frametime);
 }
 

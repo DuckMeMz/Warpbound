@@ -40,9 +40,7 @@ void Galaxy::Initialise()
 
 void Galaxy::Update(double frametime)
 {
-#ifdef _DEBUG
     HandleCheatKeys();
-#endif // _DEBUG
     //Muting Background Music
     if (HtKeyboard::instance.NewKeyPressed(SDL_SCANCODE_M))
     {
@@ -78,7 +76,7 @@ void Galaxy::Update(double frametime)
 
         if (m_waveCooldownTimer <= 0.0 && m_player->GetCurrentHealth() > 0 && !m_completeFlag)
         {
-
+            if (!m_shop) return;
             m_shop->ForceLeave();
             m_waveCooldownActive = false;
             m_spaceStation->ToggleDocking(false);
@@ -101,7 +99,6 @@ void Galaxy::Update(double frametime)
             Planet* wormHole = new Planet();
             wormHole->Initailise("assets/planets/galaxy-1.png", Vector2D(0, 250), 0, 10, 0, 1);
             wormHole->InitailiseAnimator(64, 60, 30, true, 30, 5, 0, false, false);
-
             ObjectManager::instance.AddItem(wormHole);
             m_endingLoaded = true;
         }
@@ -115,7 +112,7 @@ void Galaxy::Update(double frametime)
             HtCamera::instance.PlaceAt(Vector2D(0, 0));
             HtAudio::instance.StopAllChannels();
             ObjectManager::instance.DeactivateScene(10);
-            ObjectManager::instance.SetCurrentScene(1);
+            ObjectManager::instance.SetCurrentScene(2);
             m_waveCooldownActive = false;
             m_displayGalaxyStats = false;
             DespawnPlanets();
@@ -181,6 +178,7 @@ void Galaxy::HandleCheatKeys()
         //Can't be having one of the endings
         if (m_player->GetCurrentHealth() > 0 && !m_completeFlag)
         {
+            SkipWaveCountdown();
             SkipWaveCountdown();
             ChangeBackgroundMusic(BackgroundMusic::COMBAT);
         }
@@ -267,9 +265,8 @@ void Galaxy::SpawnEnemyAt(const Vector2D& position)
     Enemy* pEnemy = new Enemy(position, CalculateEnemyHealth(), m_player);
     if (pEnemy == nullptr) return;
     pEnemy->SetCollidable();
-    pEnemy->SetDrawDepth(100);
-    ObjectManager::instance.AddItem(pEnemy);
-   
+    pEnemy->SetDrawDepth(5);
+    ObjectManager::instance.AddItem(pEnemy); 
 };
 
 int Galaxy::CalculateEnemiesForWave()
