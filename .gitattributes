@@ -1,2 +1,5 @@
-# Ignore C from language stats because the engine is written in C, but my personal code is in C++
-*.c linguist-detectable=false
+# Force .h files to be treated as C++ headers
+*.h linguist-language=C++
+
+# Ignore C source files in stats (engine or third-party)
+*.c linguist-vendored
