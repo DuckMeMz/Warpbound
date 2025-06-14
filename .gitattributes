@@ -1,0 +1,2 @@
+# Ignore C from language stats because the engine is written in C, but my personal code is in C++
+*.c linguist-detectable=false
